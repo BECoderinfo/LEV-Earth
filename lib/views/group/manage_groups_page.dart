@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lvb_earth_admin/controllers/group/manage_group_controller.dart';
+import 'package:lvb_earth_admin/routes/app_routes.dart';
 import 'package:lvb_earth_admin/views/group/add_group_page.dart';
-
 
 class ManageGroupsPage extends StatelessWidget {
   const ManageGroupsPage({super.key});
@@ -65,6 +65,7 @@ class ManageGroupsPage extends StatelessWidget {
                   ),
                   onTap: () {
                     // Navigate to detailed group view if needed
+                    Get.toNamed(AppRoutes.groupDetails);
                   },
                 ),
               );

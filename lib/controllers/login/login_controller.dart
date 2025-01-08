@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lvb_earth_admin/routes/app_routes.dart';
 import 'package:lvb_earth_admin/services/logger_service.dart';
+import 'package:lvb_earth_admin/utils/app_variables.dart';
+import 'package:lvb_earth_admin/utils/storage_keys.dart';
 
 class LoginController extends GetxController {
   final LoggerService _logger = LoggerService();
@@ -9,12 +11,21 @@ class LoginController extends GetxController {
   TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  String idError = '';
+
   final formKey = GlobalKey<FormState>();
 
   void login() {
-    // _navigateToUserHome();
-    // _navigateToAdminHome();
-    _navigateToLeaderHome();
+    if (idController.text == 'admin') {
+      AppVariables.box.write(StorageKeys.role, 'admin');
+      _navigateToAdminHome();
+    } else if (idController.text == 'leader') {
+      AppVariables.box.write(StorageKeys.role, 'leader');
+      _navigateToLeaderHome();
+    } else {
+      AppVariables.box.write(StorageKeys.role, 'user');
+      _navigateToUserHome();
+    }
   }
 
   void _navigateToUserHome() async {

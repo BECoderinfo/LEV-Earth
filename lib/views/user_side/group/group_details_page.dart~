@@ -118,7 +118,7 @@ class GroupDetailsPage extends StatelessWidget {
                           } else if (value == 'Remove Member') {
                             controller.isRemoving.value = true;
                           } else if (value == 'Logout') {
-                            controller.logout();
+                            Get.offNamed(AppRoutes.login);
                           }
                         },
                         itemBuilder: (context) => [

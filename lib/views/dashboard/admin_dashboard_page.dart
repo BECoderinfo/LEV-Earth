@@ -16,6 +16,14 @@ class AdminDashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Admin Dashboard'),
         // centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              dashboardController.logout();
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

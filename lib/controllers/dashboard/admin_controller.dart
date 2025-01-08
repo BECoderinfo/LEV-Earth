@@ -38,4 +38,8 @@ class DashboardController extends GetxController {
       }
     }
   }
+  
+  void logout() {
+    Get.offNamed(AppRoutes.login); // Navigate to Login Page
+  }
 }

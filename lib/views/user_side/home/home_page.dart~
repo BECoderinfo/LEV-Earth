@@ -24,7 +24,6 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               homeController.logout();
             },
-          ),
         ],
       ),
       body: Padding(

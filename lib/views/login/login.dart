@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                       children: [
                         TextFormField(
                           decoration: InputDecoration(
-                            hintText: 'Phone',
+                            hintText: 'Id',
                             filled: true,
                             fillColor: AppColors.surfaceColor,
                             contentPadding: EdgeInsets.symmetric(
@@ -50,8 +50,12 @@ class LoginPage extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(50)),
                             ),
                           ),
-                          keyboardType: TextInputType.phone,
+                          keyboardType: TextInputType.name,
                           controller: controller.idController,
+                          validator: (value) {
+                            if (value!.isEmpty) return 'Id is required';
+                            return null;
+                          },
                           onSaved: (phone) {
                             // Save it
                           },
@@ -73,6 +77,9 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             controller: controller.passwordController,
+                            validator: (value) {
+                              return null;
+                            },
                             onSaved: (password) {
                               // Save it
                             },
