@@ -228,6 +228,56 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButtonLocation: ExpandableFab.location,
+      floatingActionButton: ExpandableFab(
+        type: ExpandableFabType.fan,
+        openButtonBuilder: FloatingActionButtonBuilder(
+          size: 56,
+          builder: (context, onPressed, progress) {
+            return FloatingActionButton(
+                heroTag: "Open",
+                backgroundColor: AppColors.primaryColor,
+                onPressed: onPressed,
+                child: Icon(Icons.add));
+          },
+        ),
+        closeButtonBuilder: FloatingActionButtonBuilder(
+          size: 56,
+          builder: (context, onPressed, progress) {
+            return FloatingActionButton(
+                heroTag: 'Close',
+                backgroundColor: AppColors.primaryColor,
+                onPressed: onPressed,
+                child: Icon(Icons.close));
+          },
+        ),
+        children: [
+          FloatingActionButton.extended(
+            onPressed: () {
+              Get.toNamed(AppRoutes.meetingList);
+            },
+            heroTag: 'Meetings',
+            backgroundColor: AppColors.primaryColor,
+            label: const Text("Meetings"),
+            icon: const Icon(Icons.supervised_user_circle),
+          ),
+          FloatingActionButton.extended(
+            onPressed: () {
+              Get.toNamed(AppRoutes.fees);
+            },
+            heroTag: 'Fees',
+            backgroundColor: AppColors.primaryColor,
+            label: Text('Fees'),
+            icon: const Icon(Icons.payment),
+          ),
+          FloatingActionButton.small(
+            onPressed: () {},
+            heroTag: 'Settings',
+            backgroundColor: AppColors.primaryColor,
+            child: const Icon(Icons.settings),
+          ),
+        ],
+      ),
     );
   }
 }

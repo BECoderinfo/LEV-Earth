@@ -1,14 +1,15 @@
 import 'package:lvb_earth_admin/imports/imports.dart';
 
-class MeetingList extends StatelessWidget {
-  const MeetingList({super.key});
+class FeesPage extends StatelessWidget {
+  const FeesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Meeting List"),
+        title: const Text('Fees'),
       ),
+      body: const Placeholder(),
     );
   }
 }

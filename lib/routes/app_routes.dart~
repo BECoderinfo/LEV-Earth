@@ -1,5 +1,4 @@
 import 'package:lvb_earth_admin/imports/imports.dart';
-import 'package:lvb_earth_admin/views/user_side/fees/fees.dart';
 
 class AppRoutes {
   static const splash = '/splash';
@@ -17,7 +16,6 @@ class AppRoutes {
   static const meetingList = '/meeting-list';
   static const meetingDetails = '/meeting-details';
   static const meetingCreate = '/meeting-create';
-  static const fees = '/fees';
 
   static List<GetPage<dynamic>> routes = [
     GetPage(name: splash, page: () => SplashPage()),
@@ -34,7 +32,6 @@ class AppRoutes {
     GetPage(name: meetingList, page: () => MeetingList()),
     GetPage(name: meetingDetails, page: () => MeetingDetails()),
     GetPage(name: meetingCreate, page: () => CreateMeetingPage()),
-    GetPage(name: fees, page: () => FeesPage()),
     // GetPage(name: editUser, page: () => AddGroupPage()),
   ];
 }

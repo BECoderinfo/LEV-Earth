@@ -1,0 +1,10 @@
+import 'package:lvb_earth_admin/imports/imports.dart';
+
+class MeetingDetalis extends StatelessWidget {
+  const MeetingDetalis({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

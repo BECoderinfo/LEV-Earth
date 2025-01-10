@@ -83,18 +83,38 @@ class AdminDashboardPage extends StatelessWidget {
                   Get.toNamed(AppRoutes.addGroup);
                 },
                 child: Container(
-                  height: 130,
-                  width: 200,
                   decoration: BoxDecoration(
                     color: AppColors.secondaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   child: Text(
                     'Add Group',
                     style: Theme.of(context)
                         .textTheme
-                        .headlineMedium
+                        .bodyLarge
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.meetingList);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.secondaryColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Meetings',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
                         ?.copyWith(color: Colors.white),
                   ),
                 ),
