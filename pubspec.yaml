@@ -39,6 +39,7 @@ dependencies:
   carousel_slider:
   get_storage:
   carousel_slider_plus: ^7.1.0
+  getwidget: ^5.0.0
 
 dev_dependencies:
   flutter_test:

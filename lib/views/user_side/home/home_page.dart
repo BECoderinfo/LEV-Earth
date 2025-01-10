@@ -1,12 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/user/member_detail_controller.dart';
-import 'package:lvb_earth_admin/controllers/user_side/home/home_controller.dart';
-import 'package:lvb_earth_admin/model/group.dart';
-import 'package:lvb_earth_admin/routes/app_routes.dart';
-import 'package:lvb_earth_admin/utils/app_colors.dart';
-import 'package:lvb_earth_admin/views/user_side/group/group_details_page.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -118,6 +110,17 @@ class HomePage extends StatelessWidget {
                   }).toList(),
                 ),
               ),
+            ),
+            const SizedBox(height: 20),
+            // User business details
+            const Text(
+              'Business Details',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Business Name: Demo Business',
+              style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 20),
             Row(

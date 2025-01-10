@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/user/manage_users_controller.dart';
-import 'package:lvb_earth_admin/model/user.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class EditUserPage extends StatelessWidget {
   final bool isEditing;
@@ -13,11 +10,11 @@ class EditUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ManageUsersController controller = Get.find();
     final TextEditingController nameController =
-    TextEditingController(text: isEditing ? user?.name : '');
+        TextEditingController(text: isEditing ? user?.name : '');
     final TextEditingController emailController =
-    TextEditingController(text: isEditing ? user?.email : '');
+        TextEditingController(text: isEditing ? user?.email : '');
     final TextEditingController roleController =
-    TextEditingController(text: isEditing ? user?.role : '');
+        TextEditingController(text: isEditing ? user?.role : '');
 
     return Scaffold(
       appBar: AppBar(

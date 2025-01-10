@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:lvb_earth_admin/routes/app_routes.dart';
-import 'package:lvb_earth_admin/utils/theme.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       getPages: AppRoutes.routes,
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.meetingList,
     );
   }
 }

@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/routes/app_routes.dart';
-import 'package:lvb_earth_admin/services/logger_service.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class SplashController extends GetxController {
   final LoggerService _logger = LoggerService();

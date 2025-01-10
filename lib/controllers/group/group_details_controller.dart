@@ -1,6 +1,4 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/routes/app_routes.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class GroupDetailsController extends GetxController {
   CarouselSliderController? carouselController = CarouselSliderController();

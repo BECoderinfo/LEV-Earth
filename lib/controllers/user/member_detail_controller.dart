@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class MemberDetailsController extends GetxController {
   // Member object containing details

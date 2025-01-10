@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/group/add_group_controller.dart';
-
-
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class AddGroupPage extends StatelessWidget {
   const AddGroupPage({super.key});
@@ -68,21 +64,21 @@ class AddGroupPage extends StatelessWidget {
 
             // Members List
             Obx(() => Expanded(
-              child: ListView.builder(
-                itemCount: controller.members.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(controller.members[index]),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.remove_circle),
-                      onPressed: () {
-                        controller.removeMember(index);
-                      },
-                    ),
-                  );
-                },
-              ),
-            )),
+                  child: ListView.builder(
+                    itemCount: controller.members.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(controller.members[index]),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.remove_circle),
+                          onPressed: () {
+                            controller.removeMember(index);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                )),
 
             // Submit Button
             Center(

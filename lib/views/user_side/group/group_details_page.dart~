@@ -118,7 +118,7 @@ class GroupDetailsPage extends StatelessWidget {
                           } else if (value == 'Remove Member') {
                             controller.isRemoving.value = true;
                           } else if (value == 'Logout') {
-                            Get.offNamed(AppRoutes.login);
+                            controller.logout();
                           }
                         },
                         itemBuilder: (context) => [
@@ -139,7 +139,9 @@ class GroupDetailsPage extends StatelessWidget {
                         ],
                       )
                     : IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.exit_to_app)),
+                        onPressed: () {},
+                        icon: const Icon(Icons.exit_to_app),
+                      ),
           ),
         ],
       ),
@@ -287,19 +289,21 @@ class GroupDetailsPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Obx(() => (controller.isRemoving.value)
-                            ? Positioned(
-                                top: 0,
-                                right: 0,
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: AppColors.errorColor,
+                        Obx(
+                          () => (controller.isRemoving.value)
+                              ? Positioned(
+                                  top: 0,
+                                  right: 0,
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: AppColors.errorColor,
+                                    ),
                                   ),
-                                ),
-                              )
-                            : Container()),
+                                )
+                              : Container(),
+                        ),
                       ],
                     ),
                   ),

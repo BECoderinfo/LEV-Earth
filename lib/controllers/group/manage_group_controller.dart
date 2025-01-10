@@ -1,5 +1,4 @@
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/model/group.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class ManageGroupsController extends GetxController {
   // List of groups (fake data for now)

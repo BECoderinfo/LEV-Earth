@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/user/member_detail_controller.dart';
-import 'package:lvb_earth_admin/utils/app_colors.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class MemberDetailsPage extends StatelessWidget {
   const MemberDetailsPage({super.key});

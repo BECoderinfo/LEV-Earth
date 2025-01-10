@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/splash/splash_controller.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});

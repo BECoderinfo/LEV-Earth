@@ -1,8 +1,4 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/model/group.dart';
-import 'package:lvb_earth_admin/routes/app_routes.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class HomeController extends GetxController {
   // User details

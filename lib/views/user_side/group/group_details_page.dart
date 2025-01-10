@@ -1,13 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/controllers/group/group_details_controller.dart';
-import 'package:lvb_earth_admin/model/group.dart';
 import 'package:lvb_earth_admin/routes/app_routes.dart';
-import 'package:lvb_earth_admin/utils/app_colors.dart';
-import 'package:lvb_earth_admin/utils/app_variables.dart';
-import 'package:lvb_earth_admin/utils/storage_keys.dart';
-import 'package:lvb_earth_admin/views/user_side/home/home_page.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class GroupDetailsPage extends StatelessWidget {
   const GroupDetailsPage({super.key});
@@ -139,7 +131,9 @@ class GroupDetailsPage extends StatelessWidget {
                         ],
                       )
                     : IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.exit_to_app)),
+                        onPressed: () {},
+                        icon: const Icon(Icons.exit_to_app),
+                      ),
           ),
         ],
       ),
@@ -287,19 +281,21 @@ class GroupDetailsPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Obx(() => (controller.isRemoving.value)
-                            ? Positioned(
-                                top: 0,
-                                right: 0,
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: AppColors.errorColor,
+                        Obx(
+                          () => (controller.isRemoving.value)
+                              ? Positioned(
+                                  top: 0,
+                                  right: 0,
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: AppColors.errorColor,
+                                    ),
                                   ),
-                                ),
-                              )
-                            : Container()),
+                                )
+                              : Container(),
+                        ),
                       ],
                     ),
                   ),

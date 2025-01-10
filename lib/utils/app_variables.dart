@@ -1,9 +1,6 @@
-import 'package:get/get_connect/connect.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class AppVariables {
-
   static final box = GetStorage();
   static final connect = GetConnect();
-
 }

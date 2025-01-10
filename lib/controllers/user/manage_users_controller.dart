@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/model/user.dart';
-import 'package:lvb_earth_admin/views/user/add_edit_user.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class ManageUsersController extends GetxController {
   var users = <User>[].obs;

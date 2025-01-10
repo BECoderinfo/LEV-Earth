@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lvb_earth_admin/utils/app_colors.dart';
-// import 'import.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 final ThemeData appTheme = ThemeData(
   fontFamily: 'Outfit',

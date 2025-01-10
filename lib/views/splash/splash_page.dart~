@@ -18,7 +18,7 @@ class SplashPage extends StatelessWidget {
             // Replace with actual logo
             const SizedBox(height: 20),
             const Text(
-              'LVB Earth Admin',
+              'LVB Earth',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ],

@@ -1,10 +1,5 @@
 import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/extension.dart';
-
-// import 'import.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class GFColors {
   static const Color SUCCESS = Color(0xff10DC60);

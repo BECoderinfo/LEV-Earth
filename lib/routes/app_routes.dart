@@ -1,14 +1,4 @@
-import 'package:get/get.dart';
-import 'package:lvb_earth_admin/views/dashboard/admin_dashboard_page.dart';
-import 'package:lvb_earth_admin/views/group/add_group_page.dart';
-import 'package:lvb_earth_admin/views/group/manage_groups_page.dart';
-import 'package:lvb_earth_admin/views/login/login.dart';
-import 'package:lvb_earth_admin/views/splash/splash_page.dart';
-import 'package:lvb_earth_admin/views/user/add_edit_user.dart';
-import 'package:lvb_earth_admin/views/user/manage_user.dart';
-import 'package:lvb_earth_admin/views/user/user_details.dart';
-import 'package:lvb_earth_admin/views/user_side/group/group_details_page.dart';
-import 'package:lvb_earth_admin/views/user_side/home/home_page.dart';
+import 'package:lvb_earth_admin/imports/imports.dart';
 
 class AppRoutes {
   static const splash = '/splash';
@@ -23,6 +13,7 @@ class AppRoutes {
   static const userHome = '/user-home';
   static const userDetails = '/user-details';
   static const groupDetails = '/group-details';
+  static const meetingList = '/meeting-list';
 
   static List<GetPage<dynamic>> routes = [
     GetPage(name: splash, page: () => SplashPage()),
@@ -36,6 +27,7 @@ class AppRoutes {
     GetPage(name: userHome, page: () => HomePage()),
     GetPage(name: userDetails, page: () => MemberDetailsPage()),
     GetPage(name: groupDetails, page: () => GroupDetailsPage()),
+    GetPage(name: meetingList, page: () => MeetingList()),
     // GetPage(name: editUser, page: () => AddGroupPage()),
   ];
 }
