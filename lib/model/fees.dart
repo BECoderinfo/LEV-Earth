@@ -1,9 +1,15 @@
-class Fees {
-  String? id;
-  String? name;
-  String? price;
-  String? description;
-  String? status;
+class Fee {
+  final String meetingName;
+  final double amount;
+  String status;
+  final String date;
+  final String description;
 
-  Fees({this.id, this.name, this.price, this.description, this.status});
+  Fee({
+    required this.meetingName,
+    required this.amount,
+    required this.status,
+    required this.date,
+    required this.description,
+  });
 }

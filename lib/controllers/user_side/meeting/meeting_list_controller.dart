@@ -22,7 +22,11 @@ class MeetingListController extends GetxController {
         meetingLocation: 'Location A',
         meetingDescription: 'Description A',
         meetingHost: 'Host A',
-        meetingAttendees: [],
+        meetingAttendees: [
+          'Attendee A1',
+          'Attendee A2',
+          'Attendee A3',
+        ],
         meetingStatus: 'Completed',
       ),
       Meeting(

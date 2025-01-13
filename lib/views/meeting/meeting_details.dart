@@ -24,7 +24,7 @@ class MeetingDetails extends StatelessWidget {
                             .split(" ")[0]
                             .compareTo(DateTime.parse(meeting.meetingDate)
                                 .toString()
-                                .split(" ")[0]) >=
+                                .split(" ")[0]) ==
                         0) {
                       showDialog(
                         context: context,
@@ -90,6 +90,29 @@ class MeetingDetails extends StatelessWidget {
               meeting.meetingDescription,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+
+            // Optional Actions
+            SizedBox(height: 24),
+            (meeting.meetingStatus == "Upcoming")
+                ? (DateTime.now().toString().split(" ")[0].compareTo(
+                            DateTime.parse(meeting.meetingDate)
+                                .toString()
+                                .split(" ")[0]) ==
+                        0)
+                    ? (AppVariables.box.read(StorageKeys.role) == 'admin')
+                        ? Container()
+                        : ElevatedButton(
+                            onPressed: () async {
+                              // Example Action
+                              String barcodeScanRes =
+                                  await FlutterBarcodeScanner.scanBarcode(
+                                      '#ff0000', 'Cancel', true, ScanMode.QR);
+                              Get.snackbar("Action", barcodeScanRes);
+                            },
+                            child: Text("Join Meeting"),
+                          )
+                    : Text('This meeting is not yet started')
+                : Text('This meeting has already ended'),
             SizedBox(height: 16),
 
             // Attendees List
@@ -109,29 +132,6 @@ class MeetingDetails extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
-
-            // Optional Actions
-            SizedBox(height: 24),
-            (DateTime.now().toString().split(" ")[0].compareTo(
-                        DateTime.parse(meeting.meetingDate)
-                            .toString()
-                            .split(" ")[0]) >=
-                    0)
-                ? (meeting.meetingStatus == "Upcoming")
-                    ? (AppVariables.box.read(StorageKeys.role) == 'admin')
-                        ? Container()
-                        : ElevatedButton(
-                            onPressed: () async {
-                              // Example Action
-                              String barcodeScanRes =
-                                  await FlutterBarcodeScanner.scanBarcode(
-                                      '#ff0000', 'Cancel', true, ScanMode.QR);
-                              Get.snackbar("Action", barcodeScanRes);
-                            },
-                            child: Text("Join Meeting"),
-                          )
-                    : Text('This meeting has already ended')
-                : Text('This meeting is not yet started'),
           ],
         ),
       ),
@@ -148,8 +148,8 @@ class MeetingInfoRow extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.value,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

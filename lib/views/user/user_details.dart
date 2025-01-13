@@ -5,10 +5,11 @@ class MemberDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var member = Get.arguments;
-
+    final member = Get.arguments;
     final MemberDetailsController controller =
         Get.put(MemberDetailsController(member));
+
+    final isAdmin = AppVariables.box.read(StorageKeys.role) == 'admin';
 
     return Scaffold(
       appBar: AppBar(
@@ -16,108 +17,79 @@ class MemberDetailsPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Profile Picture
-            Center(
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage(controller.member.profileImage),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(controller.member.profileImage),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-
-            // Member Name
-            Center(
-              child: Text(
-                controller.member.name,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            // Member Email
-            Center(
-              child: Text(
-                controller.member.email,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Points
-            Card(
-              elevation: 4.0,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Points:',
-                      style: TextStyle(
-                        fontSize: 18,
+              const SizedBox(height: 20),
+              Center(
+                child: Text(
+                  controller.member.name,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                    Text(
-                      '${controller.member.points}',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                  ],
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-
-            // Group Details
-            const Text(
-              'Group Details',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Card(
-              elevation: 4.0,
-              child: ListTile(
-                title: Text(controller.member.groupName),
-                subtitle: Text('Leader: ${controller.member.groupLeader}'),
-                trailing:
-                    Text('${controller.member.groupMembersCount} Members'),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Action Buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    controller.editMemberDetails();
-                  },
-                  child: const Text('Edit Details'),
+              const SizedBox(height: 10),
+              Center(
+                child: Text(
+                  controller.member.email,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    controller.removeMember();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+              ),
+              const SizedBox(height: 20),
+              if (isAdmin) ...[
+                const Text(
+                  'Fee Details',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
-                  child: const Text('Remove Member'),
+                ),
+                const SizedBox(height: 10),
+                Obx(
+                  () => ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.fees.length,
+                    itemBuilder: (context, index) {
+                      final fee = controller.fees[index];
+                      return Card(
+                        child: ListTile(
+                          title: Text(fee.meetingName),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  'Amount: \$${fee.amount.toStringAsFixed(2)}'),
+                              Text('Date: ${fee.date}'),
+                              Text('Description: ${fee.description}'),
+                              Text('Status: ${fee.status}'),
+                            ],
+                          ),
+                          trailing: fee.status == "Pending"
+                              ? ElevatedButton(
+                                  onPressed: () => controller.updateFeeStatus(
+                                    fee,
+                                    "Paid",
+                                  ),
+                                  child: const Text('Mark as Paid'),
+                                )
+                              : const Icon(Icons.check, color: Colors.green),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

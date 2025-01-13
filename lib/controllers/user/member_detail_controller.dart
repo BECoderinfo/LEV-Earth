@@ -1,20 +1,52 @@
 import 'package:lvb_earth_admin/imports/imports.dart';
 
 class MemberDetailsController extends GetxController {
-  // Member object containing details
   final Member member;
 
   MemberDetailsController(this.member);
 
-  // Method to edit member details
+  // Dummy list of unpaid fees
+  final fees = <Fee>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    // Fetch fees for the member
+    fetchFees();
+  }
+
+  void fetchFees() {
+    // Mock data to simulate fetching fees (Replace this with an API call)
+    fees.value = [
+      Fee(
+        meetingName: "Monthly Subscription",
+        amount: 50.0,
+        status: "Pending",
+        date: "2025-01-10",
+        description: "Subscription for January",
+      ),
+      Fee(
+        meetingName: "Annual Membership",
+        amount: 500.0,
+        status: "Paid",
+        date: "2024-12-01",
+        description: "One-year membership fee",
+      ),
+    ];
+  }
+
+  void updateFeeStatus(Fee fee, String newStatus) {
+    // Update the fee status (Replace this with an API call)
+    fee.status = newStatus;
+    fees.refresh();
+    print("Updated fee status for '${fee.meetingName}' to '$newStatus'.");
+  }
+
   void editMemberDetails() {
-    // Logic to edit member details
     print("Editing details for ${member.name}");
   }
 
-  // Method to remove member
   void removeMember() {
-    // Logic to remove member
     print("Removing member ${member.name}");
   }
 }
@@ -38,29 +70,37 @@ class Member {
     required this.groupMembersCount,
   });
 
-  // Factory method to create a Member instance from a map (useful for API responses)
-  factory Member.fromJson(Map<String, dynamic> json) {
-    return Member(
-      name: json['name'],
-      email: json['email'],
-      profileImage: json['profileImage'],
-      points: json['points'],
-      groupName: json['groupName'],
-      groupLeader: json['groupLeader'],
-      groupMembersCount: json['groupMembersCount'],
-    );
-  }
+  factory Member.fromJson(Map<String, dynamic> json) => Member(
+        name: json['name'],
+        email: json['email'],
+        profileImage: json['profileImage'],
+        points: json['points'],
+        groupName: json['groupName'],
+        groupLeader: json['groupLeader'],
+        groupMembersCount: json['groupMembersCount'],
+      );
 
-  // Method to convert a Member instance to a map (useful for API requests)
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'email': email,
-      'profileImage': profileImage,
-      'points': points,
-      'groupName': groupName,
-      'groupLeader': groupLeader,
-      'groupMembersCount': groupMembersCount,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'email': email,
+        'profileImage': profileImage,
+        'points': points,
+        'groupName': groupName,
+        'groupLeader': groupLeader,
+        'groupMembersCount': groupMembersCount,
+      };
 }
+
+// class Fee {
+//   final int id;
+//   final String description;
+//   final int amount;
+//   bool isPaid;
+//
+//   Fee({
+//     required this.id,
+//     required this.description,
+//     required this.amount,
+//     this.isPaid = false,
+//   });
+// }

@@ -24,6 +24,7 @@ export 'package:lvb_earth_admin/controllers/user_side/home/home_controller.dart'
 export 'package:lvb_earth_admin/controllers/user_side/meeting/meeting_details_controller.dart';
 export 'package:lvb_earth_admin/controllers/user_side/meeting/meeting_list_controller.dart';
 export 'package:lvb_earth_admin/controllers/user_side/meeting/create_meeting_controller.dart';
+export 'package:lvb_earth_admin/controllers/user_side/fees/fees_controller.dart';
 
 // model imports
 export 'package:lvb_earth_admin/model/group.dart';
